@@ -34,7 +34,7 @@ public class FavoriteService {
     Station sourceStation = stationService.findById(favoriteRequest.getSource());
     Station targetStation = stationService.findById(favoriteRequest.getTarget());
 
-    isStationEquals(sourceStation, targetStation);
+    validateStationEquals(sourceStation, targetStation);
 
     Member member = getMember(email);
 
@@ -42,7 +42,7 @@ public class FavoriteService {
     return FavoriteResponse.of(favorite);
   }
 
-  private void isStationEquals(Station source, Station target) {
+  private void validateStationEquals(Station source, Station target) {
     if (source.equals(target)) {
       throw new CustomException(StationErrorMessage.STATION_DUPLICATION);
     }

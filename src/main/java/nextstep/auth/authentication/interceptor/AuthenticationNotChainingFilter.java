@@ -31,7 +31,7 @@ public abstract class AuthenticationNotChainingFilter implements HandlerIntercep
     return new Authentication(userDetails.getPrincipal(), userDetails.getAuthorities());
   }
 
-  abstract AuthenticationToken convert(HttpServletRequest request) throws Exception;
+  protected abstract AuthenticationToken convert(HttpServletRequest request) throws Exception;
   abstract UserDetails createUserDetails(AuthenticationToken token);
   abstract void afterAuthentication(Authentication authenticate, HttpServletResponse response) throws Exception;
 }
