@@ -54,6 +54,7 @@ public class FavoriteService {
     return favorites.stream()
         .map(FavoriteResponse::of)
         .collect(toList());
+
   }
 
   private Member getMember(String email) {
